@@ -1,5 +1,5 @@
-"""This function takes one clipped file and declips it. It was created as a
-simplified version of declip.py for the declipping blog post."""
+"""This function takes one clipped file and declips it. It was created for
+the declipping blog post."""
 from scipy.io.wavfile import read, write
 import numpy as np
 import matplotlib.pyplot as plt
@@ -46,9 +46,9 @@ def declip_segments(clipped_segments, np_array):
 
         # plot segmetns
         y_axis_old = [np_array[i] for i in x_axis]
-        # plt.plot(x_axis, y_axis_old,'bo-')
-        # plt.plot(x_axis, y_axis_new,'r--')
-        # plt.show()
+        plt.plot(x_axis, y_axis_old,'bo-')
+        plt.plot(x_axis, y_axis_new,'r--')
+        plt.show()
 
         # update new array with new values
         for i, x in enumerate(x_axis):
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     np_array = np.array(file_info, dtype=float)
 
     # plot the special segment from the tutorial wav file
-    # plot_special_segment(np_array)
+    plot_special_segment(np_array)
 
     # identify bad segments
     segments = get_segments(np_array)
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     new_array = declip_segments(segments, np_array)
 
     # plot the special segment from the tutorial wav file
-    # plot_special_segment(new_array)
+    plot_special_segment(new_array)
 
     # save bad array from tutorial to demonstrate that we need to rescale
     save_bad_file(sample_rate, new_array)
