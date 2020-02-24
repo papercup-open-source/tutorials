@@ -72,7 +72,7 @@ def save_bad_file(sample_rate, new_array):
 
 
 def save_file(sample_rate, new_array, new_path):
-    new_max = max([max(new_array), abs(min(new_array))])
+    new_max = max(abs(new_array))
     new_array = np.divide(new_array, new_max)
     new_array = np.multiply(new_array, 32768.0)
     new_array = new_array.astype('int16')
