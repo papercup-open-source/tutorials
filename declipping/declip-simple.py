@@ -90,7 +90,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     sample_rate, file_info = read(args.wav_path)
-    np_array = np.array(file_info, dtype=float)  # load in16 wav file
+    np_array = np.array(file_info, dtype=float)  # load int16 wav file
 
     # plot the special segment from the tutorial wav file
     plot_special_segment(np_array)
