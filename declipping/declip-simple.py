@@ -1,4 +1,4 @@
-"""This function takes one clipped file and declips it. It was created for
+"""This script takes one clipped file and declips it. It was created for
 the declipping blog post."""
 from scipy.io.wavfile import read, write
 import numpy as np
