@@ -44,7 +44,7 @@ def declip_segments(clipped_segments, np_array):
         x_axis = list(range(start - 5, end + 6))
         y_axis_new = [ float(int(i)) for i in interpolation_function(x_axis)]
 
-        # plot segmetns
+        # plot segments
         y_axis_old = [np_array[i] for i in x_axis]
         plt.plot(x_axis, y_axis_old,'bo-')
         plt.plot(x_axis, y_axis_new,'r--')
@@ -72,7 +72,7 @@ def save_bad_file(sample_rate, new_array):
 
 
 def save_file(sample_rate, new_array, new_path):
-    new_max = max([max(new_array), abs(min(new_array))])
+    new_max = max(abs(new_array))
     new_array = np.divide(new_array, new_max)
     new_array = np.multiply(new_array, 32768.0)
     new_array = new_array.astype('int16')
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     sample_rate, file_info = read(args.wav_path)
-    np_array = np.array(file_info, dtype=float)
+    np_array = np.array(file_info, dtype=float)  # load in16 wav file
 
     # plot the special segment from the tutorial wav file
     plot_special_segment(np_array)
